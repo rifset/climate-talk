@@ -1,10 +1,11 @@
-# How Frequent Indonesians Talk About Climate?
+How Frequent Indonesians Talk About Climate?
+=
 
 ![cover.jpg](asset/cover.jpg)
 
 *Illustration asset by [Li-An Lim](https://unsplash.com/@li_anlim?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/ycW4YxhrWHM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)*
 
-## Table of Content
+# Table of Content
 
   * [Table of Content](#table-of-content)
   * [Climate change is real](#climate-change-is-real)
@@ -30,7 +31,7 @@
 
 Nowadays, the internet and social media have become integral parts of people's lives, providing instant access to information and facilitating global communication. While technological advancements have accelerated the spread of information, does the climate change issue is concerning for most of us?
 
-## Climate change is real
+# Climate change is real
 
 Climate change is an indisputable reality supported by overwhelming scientific evidence. The increasing greenhouse gases concentration, rising global temperatures, heatwaves, droughts, and intense storms, all highlight the impact of this issue. Raising awareness and developing a collective sense of urgency among people is vital to drive meaningful action and effectively addressing this global challenge. Recent narratives also prefer to use the ***“climate crisis”*** term in order to raise awareness of how severe the condition could be.
 
@@ -38,7 +39,7 @@ According to studies, when questioned about connecting with climate change infor
 
 Studies found out that it only takes 3.5% of the population actively participating in the campaign to ensure its success [2] and created a revolution/movement in a certain country. While it seems naive to expect 3.5%—the magic number—of people around the world to act in behave of climate issues, in fact, how aware public, and specifically Indonesian citizens towards this issue? Have we even reached (or approaching towards) 3.5% of the population to talk about climate crisis issues?
 
-## Indonesian netizens tweet’s exploration
+# Indonesian netizens tweet’s exploration
 
 DataReportal [3], shows that there were around 167 million Indonesian social media users, also popularly called as Indonesian netizens, it is more than half of Indonesia’s total population! Among those vast options of social media used by Indonesian netizens; TikTok, LinkedIn, and Twitter have the highest year-on-year user growth between the start of 2022 and early 2023. Most of us associated TikTok with entertainment, LinkedIn with professional networking platforms, while Twitter is an open discussions and public discourse platforms. According to data shared in Twitter's advertising materials, **Indonesia had around 24 million users on the platform in early 2023.** 
 
@@ -61,7 +62,7 @@ dt_twitter.sample(5)
 
 ![twitter-data-preview.jpeg](asset/twitter-data-preview.jpeg)
 
-### Twitter data preprocessing
+## Twitter data preprocessing
 
 Before moving even further, we need to do some preprocessing stuff to tidy up the data. This data “tidying” includes:
 
@@ -123,7 +124,7 @@ filtered_df.sample(5)
 
 ![tweet-clean.png](asset/tweet-clean.png)
 
-### N-grams analysis
+## N-grams analysis
 
 Another approach to visualizing relationships between words in text dataset is using N-grams analysis [6]. N-grams are used to specify the number of words used as observation points, such as unigram (singly-worded phrase), bigram (two-worded phrase), and trigram (three-worded phrase). 
 
@@ -131,7 +132,7 @@ Another approach to visualizing relationships between words in text dataset is u
 
 Source: [https://stackoverflow.com/questions/18193253/what-exactly-is-an-n-gram](https://stackoverflow.com/questions/18193253/what-exactly-is-an-n-gram)
 
-#### Top unigrams
+### Top unigrams
 
 ```python
 from sklearn.feature_extraction.text import CountVectorizer
@@ -160,7 +161,7 @@ plt.show()
 
 As one might expect, a lot of the most common unigrams are uninteresting words such as `yang` and `di`. These words are usually called stop-words, they might not be useful individually, but is essential for building phrases and sentences.
 
-#### Top bigrams
+### Top bigrams
 
 ```python
 from sklearn.feature_extraction.text import CountVectorizer
@@ -189,7 +190,7 @@ plt.show()
 
 Using this approach, meaningful phrases are obtained. The phrase **polusi udara** , **perubahan iklim**, and **global warming** are the most frequent terms appear in tweets.
 
-### Text length and word count analysis
+## Text length and word count analysis
 
 Using the top bigrams: **polusi udara, perubahan iklim/climate change**, and **pemanasan global/global warming**; let’s zoom into its text length and word count.
 
@@ -211,7 +212,7 @@ tweet_pemanasanglobal['keyword'] = 'pemanasan global'
 tweet_tlwca = tweet_polusiudara.append(tweet_perubahaniklim).append(tweet_pemanasanglobal, ignore_index=True)
 ```
 
-#### Tweet length
+### Tweet length
 
 ```python
 import matplotlib.pyplot as plt
@@ -267,7 +268,7 @@ plt.show()
 
 ![tweet-len-box.png](asset/tweet-len-box.png)
 
-#### Tweet word count
+### Tweet word count
 
 ```python
 import matplotlib.pyplot as plt
@@ -325,7 +326,7 @@ plt.show()
 
 Tweets that are associated with **pemanasan global** are shorter than the other categories, while both **polusi udara** and **perubahan iklim** tweets show a similar pattern in terms of sentence length.
 
-### Word cloud
+## Word cloud
 
 Word cloud is a popular visual representation of text data where the size of each word corresponds to its frequency. Despite its simplicity, it allows us to obtain quick insights and identify important ideas and patterns in the text.
 
@@ -350,7 +351,7 @@ plt.show()
 - Our ideal target to measure whether the awareness is enough or not is using the above standard, 3.5% from the population. **The tweets about climate issues were tweeted by only ~0.1% of the Twitter users in Indonesia.** But of course, not all of Indonesians using Twitter, so the percentage might fall even below than this calculation if we compare it to the real population.
 - Among the **top of mind (TOM)** about the climate issues: **polusi udara, perubahan iklim, batubara.** You might also spot some ***************English version*************** terms such as **climate change**, **global warming**, and **zero emission** with smaller proportion. This pattern might at least give us insight to which issues concerned our netizen the most and finally decided to speak it up through tweets. *How do you think? :D Feel free to decide your own interpretation*
 
-## News media content analysis
+# News media content analysis
 
 News reports are undeniably one of the best media to spread information due to their vital role in providing accurate, timely, and comprehensive coverage of events. On the other hand, news media also can plays a significant role in shaping public opinion and influencing societal perceptions of various issues.
 
@@ -364,7 +365,7 @@ The results… *(sighs)* those numbers show how unpopular this topic is when com
 
 There might be various reasons which led to this result, but how if that one of the reasons is due to the low awareness of the climate issues? Anyway, let’s go a bit deeper to the data!
 
-### Word and document analysis: TF-IDF
+## Word and document analysis: TF-IDF
 
 The TF-IDF statistic is designed to assess the importance of a word in a collection (or corpus) of documents, such as one novel in a collection of novels or one website in a collection of websites [6]. Term frequency (TF) is the frequency with which a word appears in a document, whereas inverse document frequency (IDF) reduces the weight of frequently used words while increasing the weight of words that are rarely used in a collection of documents. The TF-IDF statistic is defined by multiplying those two numbers.
 
@@ -390,7 +391,7 @@ katadata_tf_idf %>%
 
 ![top10-terms-katadata.png](asset/top10-terms-katadata.png)
 
-### Sentiment analysis
+## Sentiment analysis
 
 Applying the Pareto principle, it is feasible to discover that the 80% of the news article content can be understood by 20% of their most important keywords only. As a result, these keywords have the potential to adequately capture and convey the articles' overall sentiment and essence.
 
@@ -451,11 +452,11 @@ Example of positive-sentiment analyzed news
 
 Example of negative-sentiment analyzed news
 
-## Busting the myth: rising temperatures vs increasing climate-related topics queries
+# Busting the myth: rising temperatures vs increasing climate-related topics queries
 
 The undeniable fact that global temperatures are rising has fueled fears about climate change and its consequences. There is a hypothesis which stated that general public's interest in climate issues has grown as a result of this phenomenon. To gather evidence, we compared the average temperature in Indonesia over the last decade to Google Trends' popularity of climate-related topics. By examining the correlation between these two factors, we can assess whether rising temperatures and the public's engagement with climate issues are somehow related.
 
-### Trend comparison
+## Trend comparison
 
 ```r
 library(data.table)
@@ -491,7 +492,7 @@ Indonesia temperature data can be found [here](https://www.kaggle.com/datasets/g
 
 In conclusion, a comparison of the average temperature in Indonesia over the last decade with the popularity of climate topics using Google Trends **shows that the trends are similar.** It is sad ****to know that we have been experiencing the increasing temperature 
 
-### Correlation statistics
+## Correlation statistics
 
 ```r
 cor_val <- search_vs_temperature %>% 
@@ -506,7 +507,7 @@ print(cor_val)
 
 However, the correlation between these two variables is low, making determining a clear influence between them difficult. While the findings suggest a link, more research and consideration of other factors are needed to establish a stronger link between rising temperatures and public engagement with climate issues.
 
-## Closing Thoughts
+# Closing Thoughts
 
 Climate change is an inevitable phenomenon that is happening. As pieces of information spread more quickly than ever, people are expected to concern more about the issue that endangered our home planet and even our own existence. Exploring Twitter, it is discovered that Indonesian netizens are pretty aware of climate issues. Although the number can't be ascertained, we believe that the actual number of tweets might be higher (further study is highly encouraged, but it all depends on Melon’s policy :D). ***However, the journey to make 0.1% into 3.5% of only the Twitter population still quite far. It means that we need around 800K+ users aware and, concerned, and tweeted about this issue.***
 
@@ -518,7 +519,7 @@ Finally, while there is an upward trend in average temperatures and the populari
 
 ---
 
-## References
+# References
 
 [1] A. Tyson, B. Kennedy, and C. Funk. "Gen Z, Millennials Stand Out for Climate Change Activism, Social Media Engagement With Issue." Pew Research Center Science & Society. [https://www.pewresearch.org/science/2021/05/26/gen-z-millennials-stand-out-for-climate-change-activism-social-media-engagement-with-issue/](https://www.pewresearch.org/science/2021/05/26/gen-z-millennials-stand-out-for-climate-change-activism-social-media-engagement-with-issue/) (accessed Jun. 29, 2023).
 
